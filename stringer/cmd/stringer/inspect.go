@@ -2,8 +2,8 @@ package stringer
 
 import (
 	"fmt"
+	"stringer/pkg/stringer"
 
-	"github.com/ThorstenHans/stringer/pkg/stringer"
 	"github.com/spf13/cobra"
 )
 

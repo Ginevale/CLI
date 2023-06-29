@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ThorstenHans/stringer/cmd/stringer"
+import "stringer/cmd/stringer"
 
 func main() {
 	stringer.Execute()
