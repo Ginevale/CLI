@@ -18,7 +18,7 @@ func main() {
 				Subcommands: []*cli.Command{
 					{
 						Name:  "test",
-						Usage: "gives you question",
+						Usage: "gives you a question",
 						Action: func(cCtx *cli.Context) error {
 							var ans int
 							fmt.Println("How many bits are contained in a byte?")
@@ -33,28 +33,45 @@ func main() {
 							return nil
 						},
 					},
+				},
+			},
+			{
+				Name:    "complete",
+				Aliases: []string{"c"},
+				Usage:   "complete a task on the list",
+				Action: func(cCtx *cli.Context) error {
+					fmt.Println("completed task: ", cCtx.Args().First())
+					return nil
+				},
+			},
+			{
+				Name:    "costarella",
+				Aliases: []string{"costi"},
+				Usage:   "costi extension",
+				Subcommands: []*cli.Command{
 					{
-						Name:    "costarella",
-						Aliases: []string{"costi"},
-						Usage:   "costi extention",
-						Subcommands: []*cli.Command{
-							{
-								Name:  "test",
-								Usage: "gives you question",
-								Action: func(cCtx *cli.Context) error {
-									var ans string
-									fmt.Println("Who wrote Dorian Gray?")
-									fmt.Scanln(&ans)
-									ans = string(ans)
+						Name:  "test",
+						Usage: "gives you a question",
+						Action: func(cCtx *cli.Context) error {
+							var ans string
+							fmt.Println("Who wrote Dorian Gray?")
+							fmt.Scanln(&ans)
+							ans = string(ans)
 
-									if ans == "Oscar Wilde" {
-										fmt.Println("Dorian Gray was written by Oscar Wilde")
-									} else {
-										fmt.Println("Dorian Gray wasn't written by ", ans, "Try again!")
-									}
-									return nil
-								},
-							},
+							if ans == "Oscar Wilde" {
+								fmt.Println("Dorian Gray was written by Oscar Wilde")
+							} else {
+								fmt.Println("Dorian Gray wasn't written by ", ans, "Try again!")
+							}
+							return nil
+						},
+					},
+					{
+						Name:  "remove",
+						Usage: "remove an existing template",
+						Action: func(cCtx *cli.Context) error {
+							fmt.Println("removed task template: ", cCtx.Args().First())
+							return nil
 						},
 					},
 				},
