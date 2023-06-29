@@ -13,7 +13,7 @@ func main() {
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:  "lang",
-				Value: "english", //change language
+				Value: "english", //change language: --lang/l <language> <name>
 				Usage: "language for the greeting",
 			},
 		},
@@ -24,6 +24,9 @@ func main() {
 			}
 			if cCtx.String("lang") == "spanish" {
 				fmt.Println("Hola", name)
+			}
+			if cCtx.String("lang") == "italian" {
+				fmt.Println("Ciao", name)
 			} else {
 				fmt.Println("Hello", name)
 			}
