@@ -86,7 +86,7 @@ func main() {
 			{
 				Name:    "cocilova",
 				Aliases: []string{"coci"},
-				Usage:   "coci extention",
+				Usage:   "coci extension",
 				Subcommands: []*cli.Command{
 					{
 						Name:  "test",
