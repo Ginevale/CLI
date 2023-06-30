@@ -56,19 +56,24 @@ What does this program print?`, "4"},
 	}
 }
 
-func cociCuriosity(num int) {
-	curiosities := [4]string{"The byte is a unit of digital information that consists of eight bits.",
-		"To Insert an element at the bottom of a list: L.append(x) or to insert an element in a specific position i: L.insert(i, x)",
-		"A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry.",
-		"Strings and Tuples are immutabile, while lists are mutable. Their values can be changed."}
-	fmt.Println(curiosities[num])
-}
+func cuoriosity(num int, prof string) {
+	var curiosities []string
+	switch {
+	case prof == "coci":
+		curiosities = []string{"The byte is a unit of digital information that consists of eight bits.",
+			"To Insert an element at the bottom of a list: L.append(x) or to insert an element in a specific position i: L.insert(i, x)",
+			"A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry.",
+			"Strings and Tuples are immutabile, while lists are mutable. Their values can be changed."}
 
-func costiCuriosity(num int) {
-	curiosities := [4]string{"In April 1891, Oscar Wilde's first novel The Picture of Dorian Gray was published as a book.",
-		"Gulliver plays the role of a benevolent giant for little people who have exaggerated ideas about their self-importance.",
-		"Robinson Crusoe is a novel by Daniel Defoe, first published on 25 April 1719.",
-		"Beowulf is an anonymous epic poem, written in a West Saxon variant of Anglo-Saxon"}
+	case prof == "costi":
+		curiosities = []string{"In April 1891, Oscar Wilde's first novel The Picture of Dorian Gray was published as a book.",
+			"Gulliver plays the role of a benevolent giant for little people who have exaggerated ideas about their self-importance.",
+			"Robinson Crusoe is a novel by Daniel Defoe, first published on 25 April 1719.",
+			"Beowulf is an anonymous epic poem, written in a West Saxon variant of Anglo-Saxon"}
+
+	default:
+		fmt.Println("error")
+	}
 	fmt.Println(curiosities[num])
 }
 
@@ -96,7 +101,7 @@ func main() {
 						Name:  "curiosity",
 						Usage: "gives you explantion on topic",
 						Action: func(cCtx *cli.Context) error {
-							cociCuriosity(quest)
+							cuoriosity(quest, "coci")
 							return nil
 						},
 					},
@@ -120,7 +125,7 @@ func main() {
 						Name:  "curiosity",
 						Usage: "gives you explantion on topic",
 						Action: func(cCtx *cli.Context) error {
-							costiCuriosity(quest)
+							cuoriosity(quest, "costi")
 							return nil
 						},
 					},
