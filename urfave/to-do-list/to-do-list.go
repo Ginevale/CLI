@@ -3,12 +3,20 @@ package main
 import (
 	"fmt"
 	"log"
+	"math/rand"
 	"os"
 
 	"github.com/urfave/cli/v2"
 )
 
+func assessment() {
+	names := [5]string{"Mario", "Luigi", "Giada", "Luca", "Viola"}
+	student := names[rand.Intn(len(names))]
+	fmt.Println("Today", student, "will be assessed")
+}
+
 func main() {
+	assessment()
 	app := &cli.App{
 		Commands: []*cli.Command{
 			{
@@ -20,6 +28,7 @@ func main() {
 						Name:  "test",
 						Usage: "gives you a question",
 						Action: func(cCtx *cli.Context) error {
+
 							var ans int
 							fmt.Println("How many bits are contained in a byte?")
 							fmt.Scanln(&ans)
@@ -33,15 +42,6 @@ func main() {
 							return nil
 						},
 					},
-				},
-			},
-			{
-				Name:    "complete",
-				Aliases: []string{"c"},
-				Usage:   "complete a task on the list",
-				Action: func(cCtx *cli.Context) error {
-					fmt.Println("completed task: ", cCtx.Args().First())
-					return nil
 				},
 			},
 			{
@@ -63,14 +63,6 @@ func main() {
 							} else {
 								fmt.Println("Dorian Gray wasn't written by ", ans, "Try again!")
 							}
-							return nil
-						},
-					},
-					{
-						Name:  "remove",
-						Usage: "remove an existing template",
-						Action: func(cCtx *cli.Context) error {
-							fmt.Println("removed task template: ", cCtx.Args().First())
 							return nil
 						},
 					},
