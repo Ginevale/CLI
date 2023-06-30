@@ -68,16 +68,11 @@ func cociTest(num int) {
 }
 
 func cociCuriosity(num int) {
-	switch {
-	case num == 1:
-		fmt.Println("The byte is a unit of digital information that consists of eight bits. ")
-	case num == 2:
-		fmt.Println("To Insert an element at the bottom of a list: L.append (x) or to insert an element in a specific position i: L.insert (i, x)")
-	case num == 3:
-		fmt.Println("A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry.")
-	case num == 4:
-		fmt.Println("Strings and Tuples are immutabile, while lists are mutable. Their values can be changed.")
-	}
+	curiosities := [4]string{"The byte is a unit of digital information that consists of eight bits.",
+		"To Insert an element at the bottom of a list: L.append(x) or to insert an element in a specific position i: L.insert(i, x)",
+		"A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry.",
+		"Strings and Tuples are immutabile, while lists are mutable. Their values can be changed."}
+	fmt.Println(curiosities[num])
 }
 
 func costiTest(num int) {
@@ -129,16 +124,11 @@ func costiTest(num int) {
 }
 
 func costiCuriosity(num int) {
-	switch {
-	case num == 1:
-		fmt.Println("In April 1891, Oscar Wilde's first novel The Picture of Dorian Gray was published as a book.")
-	case num == 2:
-		fmt.Println("Gulliver plays the role of a benevolent giant for little people who have exaggerated ideas about their self-importance.")
-	case num == 3:
-		fmt.Println("Robinson Crusoe is a novel by Daniel Defoe, first published on 25 April 1719.")
-	case num == 4:
-		fmt.Println("Bwowulf is an anonymous epic poem, written in a West Saxon variant of Anglo-Saxon")
-	}
+	curiosities := [4]string{"In April 1891, Oscar Wilde's first novel The Picture of Dorian Gray was published as a book.",
+		"Gulliver plays the role of a benevolent giant for little people who have exaggerated ideas about their self-importance.",
+		"Robinson Crusoe is a novel by Daniel Defoe, first published on 25 April 1719.",
+		"Beowulf is an anonymous epic poem, written in a West Saxon variant of Anglo-Saxon"}
+	fmt.Println(curiosities[num])
 }
 
 func main() {
