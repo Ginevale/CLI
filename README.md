@@ -1,19 +1,29 @@
 # CLI
-CLI with Go libraries
+CLI with urfave/cli
 
-<details>
-<summary>Cobra</summary>
+## urfave/cli
 
-* Enter the stringer folder, which cointains other folders inside 
-* Run thhe program by typing the following commands in the terminal 
-* You get a different output based on which program you decide to run
+What does it support?
+Custom commands with:
+* Arguments
+* Flags 
+* Subcommands 
+```bash 
+go run to-do-list/to-do-list.go
+> NAME:
+   to-do-list - A new cli application
 
-```bash
-cd stringer 
-go run main. go inspect <word> -d
-'word' has <num> characters
-go run main. go reverse <word> -d
-<drow>
+USAGE:
+   to-do-list [global options] command [command options] [arguments...]
+
+COMMANDS:
+   cocilova, coci     coci extention
+   complete, c        complete a task on the list
+   costarella, costi  costi extension
+   help, h            Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h  show help
+
+go run to-do-list/to-do-list.go cocilova test
 ```
-
-</details>
