@@ -1,0 +1,16 @@
+{
+    "curiosity": [
+      {
+        "curiosities": "The byte is a unit of digital information that consists of eight bits."
+      },
+      {
+        "curiosities": "To Insert an element at the bottom of a list: L.append(x) or to insert an element in a specific position i: L.insert(i, x)"
+      },
+      {
+        "curiosities": "A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry."
+      },
+      {
+        "curiosities": "Strings and Tuples are immutabile, while lists are mutable. Their values can be changed."
+      }
+    ]
+  }

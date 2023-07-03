@@ -1,0 +1,20 @@
+{
+    "test": [
+      {
+        "question": "How many bits are contained in a byte?",
+        "answer": "8"
+      },
+      {
+        "question": "if L=[] and L=L.append(4), write the output of print (L)",
+        "answer": "4"
+      },
+      {
+        "question": "Write a loop type",
+        "answer": "for"
+      },
+      {
+        "question": "What sequence can be modified? A)String B)List C)Tuple",
+        "answer": "b"
+      }
+    ]
+  }

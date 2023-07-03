@@ -1,0 +1,20 @@
+{
+  "test": [
+    {
+      "question": "Who wrote Dorian Gray?",
+      "answer": "Oscar Wilde"
+    },
+    {
+      "question": "What's Gulliver's role on the land of Lilliput? A)To satire on British scientific community B)To criticises humanity C)Benevolent giant",
+      "answer": "c"
+    },
+    {
+      "question": "When was Robinson Crusoe, by Daniel Defoe, published?",
+      "answer": "1719"
+    },
+    {
+      "question": "Who wrote Beowulf?",
+      "answer": "anonymous"
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"os"
@@ -16,40 +18,69 @@ func assessment() {
 }
 
 type asessment struct {
-	question string
-	answer   string
+	Question string `json:"question"`
+	Answer   string `json:"answer"`
+}
+
+type temp struct {
+	Test []asessment `json:"test"`
+}
+
+type curiosity struct {
+	Curiosities string `json:"curiosities"`
+}
+
+type temp0 struct {
+	Curiosity []curiosity `json:"curiosity"`
 }
 
 func test(num int, prof string) {
+	var file_content temp
 	var test []asessment
 	switch {
 	case prof == "coci":
-		test = []asessment{
-			{"How many bits are contained in a byte?", "8"},
-			{`L = []
-L = L. append (4)
-print (L)
-What does this program print?`, "4"},
-			{"Write a loop type", "for"},
-			{"What sequence can be modified? A)String B)List C)Tuple", "b"},
+		jsonFile, err := os.Open("./coci/test.json")
+		if err != nil {
+			fmt.Println(err)
+			return
 		}
+		fmt.Println("Successfully Opened test.json")
+		defer jsonFile.Close()
+
+		byteValue, _ := ioutil.ReadAll(jsonFile)
+		json.Unmarshal(byteValue, &file_content)
+
+		test = file_content.Test
+
 	case prof == "costi":
-		test = []asessment{
-			{"Who wrote Dorian Gray?", "Oscar Wilde"},
-			{"What's Gulliver's role on the land of Lilliput? A)To satire on British scientific community B)To criticises humanity C)Benevolent giant", "c"},
-			{"When was Robinson Crusoe, by Daniel Defoe, published?", "1719"},
-			{"Who wrote Beowulf?", "anonymous"},
+		jsonFile, err := os.Open("./costi/test.json")
+		if err != nil {
+			fmt.Println(err)
+			return
 		}
+		fmt.Println("Successfully Opened test.json")
+		defer jsonFile.Close()
+
+		byteValue, _ := ioutil.ReadAll(jsonFile)
+		json.Unmarshal(byteValue, &file_content)
+
+		test = file_content.Test
 
 	default:
-		fmt.Println("error")
+		fmt.Println("Professor not found")
+		return
+	}
+
+	if num >= len(test) {
+		fmt.Println("Question out of range")
+		return
 	}
 	var ans string
-	fmt.Println(test[num].question)
+	fmt.Println(test[num].Question)
 	fmt.Scanln(&ans)
 	ans = string(ans)
 
-	if ans == test[num].answer {
+	if ans == test[num].Answer {
 		fmt.Println("That's right!")
 	} else {
 		fmt.Println(ans, "isn't correct. Try again!")
@@ -57,20 +88,36 @@ What does this program print?`, "4"},
 }
 
 func cuoriosity(num int, prof string) {
-	var curiosities []string
+	var file_content0 temp0
+	var curiosities []curiosity
 	switch {
 	case prof == "coci":
-		curiosities = []string{"The byte is a unit of digital information that consists of eight bits.",
-			"To Insert an element at the bottom of a list: L.append(x) or to insert an element in a specific position i: L.insert(i, x)",
-			"A while loop repeats as long as the condition holds true, while a for loop is used to loop through an iterable object (like a list, tuple, set, etc.) and perform the same action for each entry.",
-			"Strings and Tuples are immutabile, while lists are mutable. Their values can be changed."}
+		jsonFile, err := os.Open("./coci/curiosity.json")
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		fmt.Println("Successfully Opened curiosity.json")
+		defer jsonFile.Close()
+
+		byteValue, _ := ioutil.ReadAll(jsonFile)
+		json.Unmarshal(byteValue, &file_content0)
+
+		curiosities = file_content0.Curiosity
 
 	case prof == "costi":
-		curiosities = []string{"In April 1891, Oscar Wilde's first novel The Picture of Dorian Gray was published as a book.",
-			"Gulliver plays the role of a benevolent giant for little people who have exaggerated ideas about their self-importance.",
-			"Robinson Crusoe is a novel by Daniel Defoe, first published on 25 April 1719.",
-			"Beowulf is an anonymous epic poem, written in a West Saxon variant of Anglo-Saxon"}
+		jsonFile, err := os.Open("./costi/curiosity.json")
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		fmt.Println("Successfully Opened curiosity.json")
+		defer jsonFile.Close()
 
+		byteValue, _ := ioutil.ReadAll(jsonFile)
+		json.Unmarshal(byteValue, &file_content0)
+
+		curiosities = file_content0.Curiosity
 	default:
 		fmt.Println("error")
 	}
@@ -80,7 +127,6 @@ func cuoriosity(num int, prof string) {
 func main() {
 	questions := [4]int{1, 2, 3, 4}
 	quest := questions[rand.Intn(len(questions))] - 1
-	quest = 1
 	app := &cli.App{
 		Commands: []*cli.Command{
 			{
